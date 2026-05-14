@@ -6,7 +6,7 @@ const router = Router()
 
 router.post('/', authMiddleware, createReview)
 router.get('/', getReviews)
-router.delete('/:id', deleteReview)
+router.delete('/:id', authMiddleware, deleteReview)
 router.put('/:id', authMiddleware, updateReview)
 
 export default router

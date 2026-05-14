@@ -5,8 +5,8 @@ import { authMiddleware } from '../middlewares/authMiddleware.js'
 const router = Router()
 
 router.post('/', createUser)
-router.get('/', getUsers)
-router.delete('/:id', deleteUser)
+router.get('/', authMiddleware, getUsers)
+router.delete('/:id', authMiddleware, deleteUser)
 router.put('/:id', authMiddleware, updateUser)
 
 
