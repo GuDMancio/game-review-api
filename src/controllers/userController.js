@@ -15,7 +15,7 @@ export async function getUsers(req, res) {
 export async function deleteUser(req, res){
     const { id } = req.params
 
-    await deleteUserService(id)
+    await deleteUserService(id, req.userId)
 
     res.status(200).json({message: 'Usuário deletado com sucesso!'})
 }
@@ -23,7 +23,7 @@ export async function deleteUser(req, res){
 export async function updateUser(req, res){
     const { id } = req.params
 
-    await updateUserService(id, req.body)
+    await updateUserService(id, req.body, req.userId)
 
     res.status(201).json(req.body)
 }
